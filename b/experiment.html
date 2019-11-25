@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Purple Door Properties</title>
+	<style>
+		.container { 
+		  display: flex;
+		  }
+		.red {
+		  background: orangered;
+		  flex-grow: 1;
+		}
+		.green {
+		  background: yellowgreen;
+		}
+		.blue {
+		  background: steelblue;
+		  flex-grow: 0;
+		  width: 40vw;
+		}
+		.container > div {
+		  font-size: 5vw;
+		  padding: .5em;
+		  color: white;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+	  <div class="red">1</div>
+	  <div class="green">2</div>
+	  <div class="blue">3.
+	  	<p>
+	  		Flexbox items can grow and shrink as required to fit their contents.
+	  	</p>
+	  </div>
+	</div>
+	<script>
+		(function(){var target = document.querySelector(".blue > p");
+		var targetTxt = target.textContent;
+
+		targetTxt = targetTxt.split(' ').map((word) => {
+			word = "test";
+			return word;
+		}).join(' ');
+
+		target.textContent = targetTxt;})();
+	</script>
+</body>
+</html>

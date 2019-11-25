@@ -1,0 +1,44 @@
+body{
+	/*background-color: #d5a6e6;*/
+	background: url('../img/background.jpg') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	 -moz-background-size: cover;
+	 -o-background-size: cover;
+	 background-size: cover;
+
+}
+.maincontainer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+}
+.subtxt{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width:70vw;
+	height:50vh;
+	border: 2px solid #7b1fa2;
+	filter: drop-shadow(5px 3px 3px rgba(171,71,188,0.4));
+}
+.subtxt > h1{
+	text-align: center;
+	color: #eddbf4;
+	font-family: 'Lora', serif;
+	font-weight: 700;
+}
+
+@media only screen and (min-device-width : 481px){
+	.subtxt > h1{
+		font-size: 10vw;
+	}
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 100px) and (max-device-width : 480px) {
+	.subtxt > h1{
+		font-size: 10vh;
+	}
+}

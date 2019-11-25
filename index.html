@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Purple Door Collabrabtive</title>
+	<link rel="stylesheet" type="text/css" href="./css/holder.css">
+	<link href="https://fonts.googleapis.com/css?family=Lora:bold&display=swap" rel="stylesheet"> 
+	<script
+				  src="https://code.jquery.com/jquery-1.12.4.min.js"
+				  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+				  crossorigin="anonymous"></script>			
+	</script>
+	<script src="js/okshadow.min.js"></script>
+	<script>
+		$(function(){
+		   	$('.subtxt > h1').okshadow({
+		   		color: '#ab47bc',
+		   		textShadow: true,
+		   		downwards: false,
+		   		xMax: 5,
+		   		yMin: 10,
+		   		yOffset:0,
+		   		yMax: 100,
+		   		fuzzMin: 5,
+		   		fuzzFactor: 100,
+		   	});
+		  });
+	</script>
+</head>
+<body>
+	<div class="maincontainer">
+		<div class="subtxt">
+			<h1>
+				Coming Soon!
+			</h1>
+		</div>
+	</div>
+</body>
+</html>
