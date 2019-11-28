@@ -4,50 +4,71 @@
 	<meta charset="UTF-8">
 	<title>Purple Door Collabrative</title>
 </head>
+<link rel="stylesheet" href="../css/normalize.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" integrity="sha256-vK3UTo/8wHbaUn+dTQD0X6dzidqc5l7gczvH+Bnowwk=" crossorigin="anonymous" />
 <style>
 	#container{
 		display: grid;
-		grid-template-rows: 15% minmax(30%, 1fr) 150px minmax();
+		grid-template-columns: 10% 1fr 10%;
+		/*grid-template-rows: 10% 1fr 60px 1fr;*/
 	}
 
 	#container > *{
 		width:100%;
 	}
 	.header{
-		height: 150px;
-		grid-row: 1;
 		background-color: purple;
+		grid-column: 2;
 	}
 	.intro{
-		grid-row: 2;
-		height: 500px;
 		background-color: blue;
+		grid-column: 2;
 	}
 	.breadcrumb{
-		grid-row: 3;
-		height: 90px;
 		background-color: pink;
+		grid-column: 2;
+		margin-bottom: 0 !important;
 	}
 	.units{
-		grid-row: 4;
-		height: 1000px;
 		background-color: green;
+		grid-column: 2;
+		display: inline-flex;
 	}
 </style>
 <body>
 	<div id="container">
-		<div class="header">LOREM</div>
-		<div class="intro"><div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis aspernatur debitis numquam repellat reiciendis, ullam nihil mollitia possimus alias facilis, recusandae fugit dolorum odio id rerum laudantium tempore quam laboriosam!</div>
-		<div>Est at, quia corrupti minima asperiores natus, tenetur deleniti quos eos recusandae sequi. Error sint odio ipsa illo reprehenderit sunt soluta commodi asperiores adipisci provident, ad sequi, quam doloremque modi!</div>
-		<div>Omnis est obcaecati ab maiores necessitatibus consequuntur sequi, ex nisi quo mollitia. Minima doloremque, ipsam nostrum quibusdam obcaecati ad ratione, non, impedit minus sit natus, tempore deserunt eveniet tempora neque.</div>
-		<div>Suscipit nobis velit, modi voluptates tempore sapiente quod incidunt, vitae illo aut molestias distinctio, quis impedit. Quis asperiores, in nobis neque ipsum sed molestiae quasi, dolore, possimus tenetur ullam molestias.</div>
-		<div>Dolorum asperiores perferendis praesentium possimus in voluptate voluptas beatae laboriosam iusto accusantium? Nostrum distinctio, sint sequi exercitationem! Repudiandae magnam assumenda, iste rem ex recusandae libero id eos quaerat. Dolorem, dolorum.</div></div>
-		<div class="breadcrumb">
-			<h3>
-				Lorem / Lorem / Lorem
-			</h3>
+		<div class="header">Header</div>
+		<div class="intro">Intro</div>
+		<nav class="breadcrumb is-centered has-bullet-separator is-large">
+			<ul>
+				<li class="unit-link is-active"> 
+					<a href="#unitA" unit="unitA"> UNIT A </a>
+				</li>
+				<li class="unit-link">
+					<a href="#unitB" unit="unitB" class='is-active'> UNIT B </a>
+				</li>
+				<li class="unit-link">
+					<a href="#unitC" unit="unitC"> UNIT C </a>
+				</li>
+			</ul>
+		</nav>
+		<div class="units">
+			<div class="unitA">
+				<h1>Unit A</h1>
+
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate velit accusantium, at consequuntur fuga obcaecati quae nemo illum distinctio quas, cum suscipit debitis assumenda quasi dignissimos sit reprehenderit quis ratione!
+			</div>
+			<div class="unitB">
+				<h1>unit B</h1>
+
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam a quidem pariatur repellat eius aspernatur minima eveniet quibusdam, numquam accusantium aut soluta, voluptate eum dolor illum beatae recusandae laboriosam mollitia!
+			</div>
+			<div class="unitC">
+				<h1>unit C</h1>
+
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis veritatis eum, dolores eius, suscipit amet doloremque aperiam sunt libero asperiores, nobis ullam. Ab odio ullam, commodi voluptatum est, animi porro. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia, itaque! Suscipit vel, error voluptatibus officia tenetur atque maiores quibusdam eos, et voluptate eius quam ab consequuntur illum cum, aliquam ea.
+			</div>
 		</div>
-		<div class="units"></div>
 	</div>
 <script
 	src="https://code.jquery.com/jquery-3.4.1.js"
@@ -56,6 +77,51 @@
 </script>
 <script>
 	(function(){
+		/*$('.unit-link').click(e =>{
+			e.preventDefault();
+			console.log('unit link clicked');
+			$('.is-active').removeClass('is-active');
+			console.log(`clicked thing is ${e.target.attr('unit')}`)
+			e.target.addClass('is-active');
+
+			
+				Okay this *kinda* works, but needs to be replanned. Because we want users to be able to share the link with others pointing to the specific unit, we need to keep the GET data in the URI. So, the revised script will look like this:
+				1. load page
+				2. if no GET data detected, assign .is-active to Unit A and load Unit A data
+					a. loading unit data is just using $().hide(); for the unselected units and $().show() for the selected one.
+				3. if GET data is detected, figure out which one it is (A, B, or C) and assign .is-active to that one and load in that unit's data.
+			
+		});*/
+		var url = window.location.hash;
+		var units = ['unitA', 'unitB', 'unitC'];
+
+		if(url.length === 0 || !units.includes(url)){
+			loadUnit('unitA');
+		}
+		else{
+			url = url.split('').reverse();
+			url.pop();
+			url = url.reverse().join('');
+			loadUnit(url);
+		}
+
+		$('.unit-link').click(function(e){
+			loadUnit($(e.target).attr('unit'))
+		})
+
+		function loadUnit(unit){
+			units.forEach(u =>{
+				if(u === unit){
+					$(`.${u}`).show();
+					$('.is-active').removeClass('is-active');
+					var link = $(`a[unit=${u}]`);
+					link.parent().addClass('is-active');
+				}
+				else{
+					$(`.${u}`).hide();
+				}
+			})
+		}
 
 	})();
 </script>
