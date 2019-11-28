@@ -77,23 +77,9 @@
 </script>
 <script>
 	(function(){
-		/*$('.unit-link').click(e =>{
-			e.preventDefault();
-			console.log('unit link clicked');
-			$('.is-active').removeClass('is-active');
-			console.log(`clicked thing is ${e.target.attr('unit')}`)
-			e.target.addClass('is-active');
-
-			
-				Okay this *kinda* works, but needs to be replanned. Because we want users to be able to share the link with others pointing to the specific unit, we need to keep the GET data in the URI. So, the revised script will look like this:
-				1. load page
-				2. if no GET data detected, assign .is-active to Unit A and load Unit A data
-					a. loading unit data is just using $().hide(); for the unselected units and $().show() for the selected one.
-				3. if GET data is detected, figure out which one it is (A, B, or C) and assign .is-active to that one and load in that unit's data.
-			
-		});*/
-		var url = window.location.hash;
-		var units = ['unitA', 'unitB', 'unitC'];
+		//variables init
+		var url = window.location.hash
+		   ,units = ['unitA', 'unitB', 'unitC'];
 
 		if(url.length === 0 || !units.includes(url)){
 			loadUnit('unitA');
@@ -112,12 +98,13 @@
 		function loadUnit(unit){
 			units.forEach(u =>{
 				if(u === unit){
-					$(`.${u}`).show();
+					$(`.${u}`).fadeIn();
 					$('.is-active').removeClass('is-active');
 					var link = $(`a[unit=${u}]`);
 					link.parent().addClass('is-active');
 				}
 				else{
+					//to-do: find a way to change 'hide()' into 'fadeOut()'
 					$(`.${u}`).hide();
 				}
 			})
