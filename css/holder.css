@@ -1,12 +1,13 @@
 body{
-	/*background-color: #d5a6e6;*/
-	background: url('../img/background.jpg') no-repeat center center fixed;
-	-webkit-background-size: cover;
-	 -moz-background-size: cover;
-	 -o-background-size: cover;
+	background-color: #d5a6e6;
+	background: url('../img/nighthouse2.jpg') no-repeat center center fixed;
+	-webkit-background-size: contain;
+	 -moz-background-size: contain;
+	 -o-background-size: contain;
 	 background-size: cover;
-
+	 background-position: 50% 10%;
 }
+
 .maincontainer {
 	display: flex;
 	align-items: center;
@@ -15,6 +16,7 @@ body{
 }
 .subtxt{
 	display: flex;
+	position: fixed;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
@@ -36,7 +38,7 @@ body{
 	}
 }
 
-/* Smartphones (portrait and landscape) ----------- */
+/* Smartphones (portrait and landscape) ----------- 
 @media only screen and (min-device-width : 100px) and (max-device-width : 480px) {
 	.subtxt > h1{
 		font-size: 10vh;
