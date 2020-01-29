@@ -40,7 +40,7 @@ body{
 
 
 
-/* Smartphones (portrait and landscape) ----------- 
+/* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-device-width : 100px) and (max-device-width : 480px) {
 	.subtxt > h1{
 		font-size: 10vh;
