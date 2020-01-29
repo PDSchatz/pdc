@@ -1,11 +1,11 @@
 body{
-	background-color: #d5a6e6;
-	background: url('../img/nighthouse2.jpg') no-repeat center center fixed;
+	/*background-color: #d5a6e6;*/
+	/*background: url('../img/nighthouse2.jpg') no-repeat center center fixed;
 	-webkit-background-size: contain;
 	 -moz-background-size: contain;
 	 -o-background-size: contain;
 	 background-size: cover;
-	 background-position: 50% 10%;
+	 background-position: 50% 10%;*/
 }
 
 .maincontainer {
@@ -37,6 +37,8 @@ body{
 		font-size: 10vw;
 	}
 }
+
+
 
 /* Smartphones (portrait and landscape) ----------- 
 @media only screen and (min-device-width : 100px) and (max-device-width : 480px) {
