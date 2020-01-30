@@ -12,7 +12,11 @@
    		fuzzFactor: 100,
    	});
    });
-
+/*
+   Below is the setup and execution for the background slideshow. It uses a plugin called 'jquery-background-slideshow.js'
+   I found it here: https://www.jqueryscript.net/slideshow/performant-background-slideshow.html
+   The docs aren't located... uh... anywhere, so I assume that those options are the only options?
+*/
    var imgList = [
       "img/nighthouse2.jpg",
       "img/a_kitchen_1.jpg",
